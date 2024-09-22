@@ -1,0 +1,121 @@
+.circle-story-slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.slider-item {
+    text-align: center;
+    margin: 10px;
+}
+.slider-item:hover{
+    margin-top: -1px;
+    transition: all 0.3s;
+}
+.slider-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* دایره‌ای کردن تصویر */
+    border: 3px solid #e7e7e7;
+}
+
+.slider-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.slider-item {
+    text-align: center; /* مرکز کردن محتوا */
+    margin: 15px; /* فاصله بین اسلایدها */
+}
+
+.slider-image {
+    width: 100%; /* ارتفاع ثابت برای باکس */
+    margin: 0 auto; /* مرکز کردن باکس */
+    overflow: hidden; /* جلوگیری از خروج محتوا از باکس */
+    display: block;
+    border: 3px solid silver;
+    text-align: center;
+    background-color: #f0f0f0; /* رنگ پس‌زمینه برای باکس بدون تصویر */
+    position: relative; /* برای قرار دادن آیکون پیش‌فرض */
+}
+
+/* برای تصاویر دایره‌ای */
+.slider-image.circle {
+    border-radius: 50%; /* تبدیل به دایره */
+}
+
+/* برای تصاویر مستطیلی با گوشه‌های کرو */
+.slider-image.rectangle {
+    border-radius: 10px; /* گوشه‌های کرو */
+}
+
+.slider-image img {
+    width: 100%; /* تصویر کل عرض باکس را پر می‌کند */
+    height: 100%; /* تصویر کل ارتفاع باکس را پر می‌کند */
+    object-fit: cover; /* تصویر با حفظ نسبت ابعاد، باکس را پر می‌کند */
+    display: block;
+}
+
+/* زمانی که تصویر وجود ندارد */
+.slider-image:empty::before {
+    content: url('your-default-icon.png'); /* مسیر آیکون پیش‌فرض */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* اندازه آیکون */
+    height: 50px; /* اندازه آیکون */
+    opacity: 0.5; /* شفافیت آیکون برای نشان دادن تصویر پیش‌فرض */
+}
+
+/* تصاویر واکنش‌گرا در سایزهای مختلف */
+@media (max-width: 1024px) {
+    .slider-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .slider-image:empty::before {
+        width: 40px; /* تنظیم اندازه آیکون برای سایز صفحه کوچک‌تر */
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .slider-image:empty::before {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .slider-image:empty::before {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.slick-arrow {
+    display: none !important;
+}
